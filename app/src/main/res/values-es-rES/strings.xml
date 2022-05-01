@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simon_Say\'s_Game</string>
+    <string name="exit">Salir</string>
+    <string name="start">Iniciar</string>
+    <string name="initplay">"Pulsa iniciar para jugar"</string>
+    <string name="simonstxt">Simon Dice...</string>
+    <string name="yourtuns">Tú turno</string>
+    <string name="yourlost">Has perdido</string>
+</resources>
