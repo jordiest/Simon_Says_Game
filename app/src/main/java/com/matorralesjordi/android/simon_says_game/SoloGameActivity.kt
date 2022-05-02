@@ -56,8 +56,11 @@ class SoloGameActivity : AppCompatActivity() {
             else -> 3
         }
         if(index == chainSounds[hits]){
-            sounds[index]?.setVolume(1.0f, 1.0f)
-            sounds[index]?.start()
+            //sounds[index]?.setVolume(1.0f, 1.0f)
+            //sounds[index]?.start()
+            // # mod 1
+            btnClicked(index)
+            //
             hits += 1
             if(hits == chainSounds.size){
                 score = hits
@@ -70,7 +73,7 @@ class SoloGameActivity : AppCompatActivity() {
         }else{
             binding.txtInfo.text = getString(R.string.yourlost)
             checkScore()
-            delay(500){
+            delay(500L){
                 binding.btnStartSolo.isEnabled = true
                 chainSounds.clear()
                 stateButtons(false)
@@ -91,13 +94,13 @@ class SoloGameActivity : AppCompatActivity() {
     private fun turnComputer() {
         binding.txtInfo.text = getString(R.string.simonstxt)
         chainSounds?.add((0..3).random())
-        delay(1500L){
+        delay(1000){
             for(i in 0 until (chainSounds.size)){
-                delay(2000L * i){
+                delay(1500L * i){
                     btnClicked(chainSounds[i])
                 }
             }
-            delay(chainSounds.size * 2100L){
+            delay(chainSounds.size * 1600L){
                 binding.txtInfo.text = getString(R.string.yourtuns)
                 stateButtons(true)
             }
@@ -112,7 +115,6 @@ class SoloGameActivity : AppCompatActivity() {
         binding.imgYellow.isEnabled = bool
         binding.imgGreen.isEnabled = bool
     }
-    // TODO(comprobar si con el click se puede usar con el jugador)
     // Funcion de la ia para hacer la animacion de los botones
     private fun btnClicked(index: Int) {
         val before: Int
@@ -140,7 +142,7 @@ class SoloGameActivity : AppCompatActivity() {
             sounds[index]?.setVolume(1.0F, 1.0F)
             sounds[index]?.start()
 
-            delay(150){
+            delay(250){
                 btns[index]?.setBackgroundResource(after)
             }
         }catch (e: Exception){}
