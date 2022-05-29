@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FF9800</color>
     <color name="orange_Light">#EBB360</color>
+    <color name="orange_Cream">#E4B28F</color>
     <color name="primary">#795548</color>
     <color name="primary_dark">#5d4037</color>
     <color name="primary_light">#d7ccc8</color>

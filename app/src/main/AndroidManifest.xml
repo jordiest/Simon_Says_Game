@@ -9,10 +9,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Simon_Says_Game.NoActionBar">
         <activity
-            android:name=".PopUpPlayActivity"
+            android:name=".CoopGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="false"
-            android:screenOrientation="portrait"/>
-        <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
+            android:screenOrientation="portrait" /> <!-- android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"> -->
         <activity
             android:name=".SoloGameActivity"
             android:exported="false"
@@ -22,7 +24,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ModeCoopActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

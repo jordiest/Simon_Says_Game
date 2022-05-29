@@ -22,6 +22,9 @@
     <string name="modecoop">Mode Co-op</string>
     <string name="solorecord">Solo Record</string>
     <string name="cooprecord">Co-op Record</string>
-    <string name="chose">Choose game mode</string>
+    <string name="typeCoop">¿Host or access?</string>
     <string name="newrecord">New record added!!!</string>
+    <string name="host" translatable="false">Host</string>
+    <string name="access">Access</string>
+    <string name="gamecode">Code</string>
 </resources>

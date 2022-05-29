@@ -10,7 +10,7 @@ import com.matorralesjordi.android.simon_says_game.databinding.ActivityUserHomeB
 
 class UserHomeActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityUserHomeBinding
+    private lateinit var binding: ActivityUserHomeBinding
     // Creamos conexion con la bbdd
     private val db = FirebaseFirestore.getInstance()
 
@@ -30,15 +30,15 @@ class UserHomeActivity : AppCompatActivity() {
 
         // Recuperamos datos del recor personal en solitario mas alto
         db.collection("usersSolo").document(email).get().addOnSuccessListener {
-            binding.txtSoloRecord1.setText( it.get("soloRecord1") as String?)
-            binding.txtSoloRecord2.setText( it.get("soloRecord2") as String?)
-            binding.txtSoloRecord3.setText( it.get("soloRecord3") as String?)
+            binding.txtSoloRecord1.text = it.get("soloRecord1") as String?
+            binding.txtSoloRecord2.text = it.get("soloRecord2") as String?
+            binding.txtSoloRecord3.text = it.get("soloRecord3") as String?
         }
         // Recuperamos datos del recor personal cooperativo mas alto
         db.collection("usersCoop").document(email).get().addOnSuccessListener {
-            binding.txtCoopRecord1.setText( it.get("coopRecord1") as String?)
-            binding.txtCoopRecord2.setText( it.get("coopRecord2") as String?)
-            binding.txtCoopRecord3.setText( it.get("coopRecord3") as String?)
+            binding.txtCoopRecord1.text = it.get("coopRecord1") as String?
+            binding.txtCoopRecord2.text = it.get("coopRecord2") as String?
+            binding.txtCoopRecord3.text = it.get("coopRecord3") as String?
         }
 
         // Btn cerrar sesion
@@ -57,6 +57,16 @@ class UserHomeActivity : AppCompatActivity() {
                 putExtra("soloRecord3", binding.txtSoloRecord3.text)
             }
             startActivity(soloIntent)
+        }
+
+        binding.btnPlayCoop.setOnClickListener{
+            val popUpIntent = Intent(this, ModeCoopActivity::class.java).apply{
+                putExtra("email", email)
+                putExtra("coopRecord1", binding.txtCoopRecord1.text)
+                putExtra("coopRecord2", binding.txtCoopRecord2.text)
+                putExtra("coopRecord3", binding.txtCoopRecord3.text)
+            }
+            startActivity(popUpIntent)
         }
 
     }
