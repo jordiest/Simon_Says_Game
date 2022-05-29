@@ -7,4 +7,15 @@
     <string name="simonstxt">Simon Dice...</string>
     <string name="yourtuns">Tú turno</string>
     <string name="yourlost">Has perdido</string>
+    <string name="email">Correo (nombre@ejemplo.com)</string>
+    <string name="password">Contraseña (Min. 8 caracteres)</string>
+    <string name="login">Acceder</string>
+    <string name="singup">Registrarse</string>
+    <string name="logout">Cerrar sesion</string>
+    <string name="modesolo">Modo solitario</string>
+    <string name="modecoop">Modo Cooperativo</string>
+    <string name="solorecord">Record en solitario</string>
+    <string name="cooprecord">Record en cooperativo</string>
+    <string name="chose">Elige el modo de juego</string>
+    <string name="newrecord">Nuevo record añadido!!!</string>
 </resources>

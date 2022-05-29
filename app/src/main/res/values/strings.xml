@@ -2,14 +2,26 @@
     <string name="app_name">Simon_Say\'s_Game</string>
     <string name="exit">Exit</string>
     <string name="start">Start</string>
-    <string name="imgblue" translatable="false">imgBlue</string>
-    <string name="imgred" translatable="false">imgRed</string>
-    <string name="imgyellow" translatable="false">imgYellow</string>
-    <string name="imggreen" translatable="false">imgGreen</string>
+    <string name="imgblue" translatable="false">ImgBlue</string>
+    <string name="imgred" translatable="false">ImgRed</string>
+    <string name="imgyellow" translatable="false">ImgYellow</string>
+    <string name="imggreen" translatable="false">ImgGreen</string>
     <string name="initplay">"Click start to play"</string>
     <string name="record" translatable="false">Record</string>
     <string name="score" translatable="false">Score</string>
     <string name="simonstxt">Simon Say\'s...</string>
     <string name="yourtuns">You turn</string>
     <string name="yourlost">You lost</string>
+    <string name="title" translatable="false">Simon Say\'s</string>
+    <string name="email">Email (name@example.com)</string>
+    <string name="password">Password (Min. 8 characters)</string>
+    <string name="login">LogIn</string>
+    <string name="singup">Singup</string>
+    <string name="logout">Log out</string>
+    <string name="modesolo">Mode Solo</string>
+    <string name="modecoop">Mode Co-op</string>
+    <string name="solorecord">Solo Record</string>
+    <string name="cooprecord">Co-op Record</string>
+    <string name="chose">Choose game mode</string>
+    <string name="newrecord">New record added!!!</string>
 </resources>

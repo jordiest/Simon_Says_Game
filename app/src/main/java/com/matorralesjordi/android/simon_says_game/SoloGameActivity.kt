@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 import com.matorralesjordi.android.simon_says_game.databinding.ActivitySoloGameBinding
 import java.lang.Exception
 import kotlin.system.exitProcess
@@ -24,10 +26,27 @@ class SoloGameActivity : AppCompatActivity() {
     private var score: Int = 0
     private var hits: Int = 0
 
+    private var soloRecord1: String = ""
+    private var soloRecord2: String = ""
+    private var soloRecord3: String = ""
+    private var email = ""
+
+    // Creamos conexion con la bbdd
+    private val db = FirebaseFirestore.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySoloGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Recuperamos el record en solitario
+        val bundle = intent.extras
+        soloRecord1 = bundle?.getString("soloRecord1").toString()
+        soloRecord2 = bundle?.getString("soloRecord2").toString()
+        soloRecord3 = bundle?.getString("soloRecord3").toString()
+        email = bundle?.getString("email").toString()
+        highestScore = soloRecord1.toInt()
+
         // Indicamos los botones y sonidos
         createBtnsSounds()
         // Indicamos las marcas y la información inicial
@@ -44,7 +63,10 @@ class SoloGameActivity : AppCompatActivity() {
 
         }
         // Habilitamos la opcion de salir de la partida
-        binding.btnExit.setOnClickListener { exitProcess(-1) }
+        binding.btnExit.setOnClickListener {
+//            exitProcess(-1)
+            finish()
+        }
 
     }
     // Funcion cuando el usuario pulsa un boton de juego
@@ -80,10 +102,38 @@ class SoloGameActivity : AppCompatActivity() {
             }
         }
     }
+
     // Funcion para comprobar si hay un nuevo record personal
     private fun checkScore() {
         if(score > highestScore){
+            if (email != null) {
+                db.collection("usersSolo").document(email).set(
+                    hashMapOf("soloRecord1" to score.toString(), "soloRecord2" to highestScore.toString(), "soloRecord3" to soloRecord2)
+                )
+                Toast.makeText(this, R.string.newrecord, Toast.LENGTH_SHORT).show()
+            }
             highestScore = score
+            score = 0
+            binding.txtRecord.text = getString(R.string.record) + ": $highestScore"
+            binding.txtScore.text = getString(R.string.score) + ": $score"
+
+        }else if(score > soloRecord2.toInt()){
+            if (email != null) {
+                db.collection("users").document(email).set(
+                    hashMapOf("soloRecord1" to soloRecord1, "soloRecord2" to score.toString(), "soloRecord3" to soloRecord2)
+                )
+                Toast.makeText(this, R.string.newrecord, Toast.LENGTH_SHORT).show()
+            }
+            score = 0
+            binding.txtRecord.text = getString(R.string.record) + ": $highestScore"
+            binding.txtScore.text = getString(R.string.score) + ": $score"
+        }else if(score > soloRecord3.toInt()){
+            if (email != null) {
+                db.collection("users").document(email).set(
+                    hashMapOf("soloRecord1" to soloRecord1, "soloRecord2" to soloRecord2,"soloRecord3" to score.toString())
+                )
+                Toast.makeText(this, R.string.newrecord, Toast.LENGTH_SHORT).show()
+            }
             score = 0
             binding.txtRecord.text = getString(R.string.record) + ": $highestScore"
             binding.txtScore.text = getString(R.string.score) + ": $score"

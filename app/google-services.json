@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "951591673778",
+    "project_id": "simon-say-s-game",
+    "storage_bucket": "simon-say-s-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951591673778:android:c3323e4629efa38b714eab",
+        "android_client_info": {
+          "package_name": "com.matorralesjordi.android.simon_says_game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951591673778-nfianob8073om5mh05so1lk8i68u0te6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.matorralesjordi.android.simon_says_game",
+            "certificate_hash": "aba2d85935b9894df62709a2f4ca4ab703ce652f"
+          }
+        },
+        {
+          "client_id": "951591673778-rvqq73kqj23ejpqf05tve62dm744ib84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXbguEmVud2muAZwjY56AeeerivsLZ7wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951591673778-rvqq73kqj23ejpqf05tve62dm744ib84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
